@@ -7,10 +7,18 @@
     <title>NutriFace</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
     <link href="dist/output.css" rel="stylesheet" />
+    <style>
+        #mobile-menu {
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+    
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Header -->
     <!-- Header -->
     <header class="bg-black text-white py-5">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-24 flex justify-between items-center">
@@ -18,11 +26,25 @@
                 <img src="assets/brand-logo.png" alt="Brand Logo" class="w-12 mr-4" />
                 <div class="text-xl font-bold tracking-wide">NutriFace</div>
             </div>
-            <nav class="text-sm space-x-6">
+            <nav class="hidden md:flex text-sm space-x-6">
+                <a href="#" class="hover:underline italic">Scan yourself</a>
+                <a href="#" class="hover:underline">About us</a>
+            </nav>
+            <!-- Hamburger (Mobile) -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 fill-current text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden container mx-auto text-center py-5 px-5 md:px-0">
+            <nav class="flex flex-col space-y-5 text-sm">
                 <a href="#" class="hover:underline italic">Scan yourself</a>
                 <a href="#" class="hover:underline">About us</a>
             </nav>
         </div>
+
     </header>
 
     <!-- Section 1: Hero -->
@@ -194,6 +216,14 @@
         </div>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
